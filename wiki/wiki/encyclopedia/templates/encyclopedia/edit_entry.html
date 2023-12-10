@@ -1,0 +1,9 @@
+<!--This is the edit page for the encyclopedia entries.-->  
+<h1>Edit Entry</h1>
+<!-- Takes the title and content of the entry and displays it in a text area. The user can then edit the content and save the changes.--> 
+<form method="post" action="{% url 'edit_entry' title=title %}">
+    {% csrf_token %}
+    <textarea name="content" rows="10" cols="100">{{ content }}</textarea>
+    <button type="submit">Save Changes</button>
+</form>
+

@@ -1,0 +1,16 @@
+<!-- Here we display the search results -->
+
+{% extends "encyclopedia/layout.html" %} <!-- We extend the layout from the layout.html template -->
+
+{% block title %}Search Results{% endblock %} <!-- Sets the title of the page to "Search Results". -->
+
+{% block body %}
+    <h1>Search Results for "{{ query }}"</h1> <!-- Displays the search query. -->
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>  <!-- Displays the search results. -->
+        {% empty %}
+            <p>No results found.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
